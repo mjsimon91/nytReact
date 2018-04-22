@@ -22,3 +22,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#searchCard {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#resultsCard {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -9,7 +9,7 @@ const Article = (props) => {
           <ListGroupItemText>
           {props.leadParagraph}
           </ListGroupItemText>
-          {props.children}
+          {props.date}
         </ListGroupItem>
     )
 }

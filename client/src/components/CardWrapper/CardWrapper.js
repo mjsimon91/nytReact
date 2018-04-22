@@ -1,10 +1,11 @@
 import React from 'react';
-import { Card, CardHeader, CardBody, ListGroup } from 'reactstrap';
+import { Card, CardHeader, CardBody, ListGroup} from 'reactstrap';
 import "./CardWrapper.css"
 
   const CardWrapper = (props) => {
       return(
-          <div>
+         
+        <div>
             <Card>
                 <CardHeader>{props.header}</CardHeader>
                 <CardBody>
@@ -13,7 +14,8 @@ import "./CardWrapper.css"
                     </ListGroup>
                 </CardBody>
             </Card>
-          </div>
+        </div>        
+          
       )
   }
 
