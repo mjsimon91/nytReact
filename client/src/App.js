@@ -5,9 +5,42 @@ import Navbar from "./components/Navbar";
 import CardWrapper from "./components/CardWrapper";
 import Article from "./components/Article/Article";
 import SearchForm from "./components/SearchForm";
+import API from "./utils/API"
 
 
 class App extends Component {
+
+  state = {
+    search: "",
+    results: []
+  };
+
+
+  //Writing the search query
+  searchNYT = query => {
+    API.search(query)
+      // .then(res => this.setState({results: res.data.data}))
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
+  //handle the typing of a character
+  handleInputChange = event => {
+    const {name, value} = event.target;
+
+    this.setState({
+      [name]: value
+    })
+  
+  };
+
+  //handle the submission of the form with what is in this.set.state
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.search)
+    // this.searchNYT(this.state.search);
+  };
+
   render() {
     return (
       <div>
@@ -24,7 +57,11 @@ class App extends Component {
                 <Col>
                   <div>
                     <CardWrapper header = "Search">
-                      <SearchForm />
+                      <SearchForm
+                      handleInputChange = {this.state.handleInputChange}
+                      search = {this.state.search}
+                      handleFormSubmit = {this.handleFormSubmit}
+                      />
                     </CardWrapper>
                   </div>
               </Col>

@@ -7,7 +7,13 @@ class SearchForm extends React.Component {
             <Form>
               <FormGroup>
                 <Label for="topic">Topic</Label>
-                <Input type="text" name="topic" id="searchTopic" placeholder="Baseball" />
+                <Input 
+                onChange = {this.props.handleInputChange}
+               
+                type="text" 
+                name="topic" 
+                id="searchTopic" 
+                placeholder="Baseball" />
               </FormGroup>
 
               <FormGroup>
@@ -20,7 +26,9 @@ class SearchForm extends React.Component {
                 <Input type="text" name="endYear" id="endYear" placeholder="2018" />
               </FormGroup>
 
-              <Button id="submitSearch">Submit</Button>
+              <Button 
+              onClick = {this.props.handleFormSubmit}
+              id="submitSearch">Submit</Button>
             </Form>
           ); 
     }
