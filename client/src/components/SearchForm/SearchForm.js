@@ -5,30 +5,7 @@ class SearchForm extends React.Component {
     render(){
         return (
             <Form>
-              <FormGroup>
-                <Label for="topic">Topic</Label>
-                <Input 
-                onChange = {this.props.handleInputChange}
-               
-                type="text" 
-                name="topic" 
-                id="searchTopic" 
-                placeholder="Baseball" />
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="startYear">Start Year</Label>
-                <Input type="text" name="startYear" id="startYear" placeholder="2018" />
-              </FormGroup>
-              
-              <FormGroup>
-                <Label for="endYear">End Year</Label>
-                <Input type="text" name="endYear" id="endYear" placeholder="2018" />
-              </FormGroup>
-
-              <Button 
-              onClick = {this.props.handleFormSubmit}
-              id="submitSearch">Submit</Button>
+              {this.props.children}
             </Form>
           ); 
     }

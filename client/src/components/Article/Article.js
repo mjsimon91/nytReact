@@ -1,16 +1,24 @@
 import React from "react";
-import { ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
+import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
 import './Article.css';
 
 const Article = (props) => {
     return(
-        <ListGroupItem>
-          <ListGroupItemHeading>{props.articleTitle}</ListGroupItemHeading>
-          <ListGroupItemText>
-          {props.leadParagraph}
-          </ListGroupItemText>
-          {props.date}
-        </ListGroupItem>
+        <ListGroup>
+            {props.results.map(article => (
+                 <ListGroupItem>
+                    <ListGroupItemHeading>{article.headline.main}</ListGroupItemHeading>
+                    <ListGroupItemText>
+                        {article.snippet}
+                    </ListGroupItemText>
+                        {props.pub_date}
+                </ListGroupItem>
+            ))}
+        </ListGroup>
+       
+           
+          
+        
     )
 }
 

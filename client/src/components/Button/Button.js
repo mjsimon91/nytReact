@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 const PrimaryButton = (props) => {
     return(
         <div>
-            <Button outline color="secondary">{props.state}</Button>
+            <Button outline color="secondary" className={props.type} onClick={props.onClick}>{props.text}</Button>
         </div>
     )
 }
