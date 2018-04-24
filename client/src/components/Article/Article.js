@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
+import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Button, Row } from 'reactstrap';
 import './Article.css';
 
 const Article = (props) => {
@@ -11,7 +11,11 @@ const Article = (props) => {
                     <ListGroupItemText>
                         {article.snippet}
                     </ListGroupItemText>
-                        {props.pub_date}
+                        {article.pub_date}
+                        <Row>
+                        <Button id={article._id} outline color="primary">Save</Button>
+                        </Row>
+                    
                 </ListGroupItem>
             ))}
         </ListGroup>

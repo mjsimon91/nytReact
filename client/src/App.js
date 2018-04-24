@@ -8,6 +8,7 @@ import SearchForm from "./components/SearchForm";
 import Input from "./components/Input"
 import Button from "./components/Button"
 import API from "./utils/API"
+import moment from 'moment';
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
     results: []
   };
 
+//Creating a function that adds an id to each key
 
   //Writing the search query
   searchNYT = query => {
@@ -39,7 +41,12 @@ class App extends Component {
   //handle the submission of the form with what is in this.set.state
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchNYT(this.state.search);
+    const start = moment(this.state.startDate).format('YYYYMMDD')
+    const end = moment(this.state.endDate).format('YYYYMMDD')
+    console.log(start)
+    console.log(end)
+
+    this.searchNYT(this.state.search, this.state.startDate, this.state.endDate);
   };
 
   render() {
@@ -112,6 +119,7 @@ class App extends Component {
                   <div id="results">
                     <CardWrapper header = "Results">
                       <Article 
+                      key = {this.state.results.id}
                       results = {this.state.results}
                       />
                     </CardWrapper>
