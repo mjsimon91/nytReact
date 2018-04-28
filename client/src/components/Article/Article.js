@@ -6,14 +6,14 @@ const Article = (props) => {
     return(
         <ListGroup>
             {props.results.map(article => (
-                 <ListGroupItem>
+                 <ListGroupItem key={article._id}>
                     <ListGroupItemHeading>{article.headline.main}</ListGroupItemHeading>
                     <ListGroupItemText>
                         {article.snippet}
                     </ListGroupItemText>
                         {article.pub_date}
                         <Row>
-                        <Button id={article._id} outline color="primary">Save</Button>
+                        <Button id={article._id} outline color="primary">{props.action}</Button>
                         </Row>
                     
                 </ListGroupItem>

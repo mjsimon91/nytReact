@@ -38,6 +38,14 @@ class App extends Component {
     })
   };
 
+  //When the page loads, display all saved articles
+  savedArticles = event => {
+    API.getArticles()
+    .then(res => console.log(res))
+      // .then(res => this.setState({articles: res.data}))
+      .catch(err => console.log(err))
+  }
+
   //handle the submission of the form with what is in this.set.state
   handleFormSubmit = event => {
     event.preventDefault();
@@ -48,6 +56,15 @@ class App extends Component {
 
     this.searchNYT(this.state.search, this.state.startDate, this.state.endDate);
   };
+
+  //Post to the db when an article is saved
+  handleArticleSave = event => {
+    console.log(this)
+  }
+
+  componentDidMount() {
+    this.savedArticles();
+  }
 
   render() {
     return (
@@ -118,9 +135,11 @@ class App extends Component {
         
                   <div id="results">
                     <CardWrapper header = "Results">
-                      <Article 
+                      <Article
+                      action = "Save" 
                       key = {this.state.results.id}
                       results = {this.state.results}
+                      onClick= {this.handleArticleSave}
                       />
                     </CardWrapper>
                   </div>
